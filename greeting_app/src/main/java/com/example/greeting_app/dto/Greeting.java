@@ -3,6 +3,8 @@ package com.example.greeting_app.dto;
 public class Greeting {
     private String message;
 
+    public Greeting(){}
+
     public Greeting(String message){
         this.message = message;
     }

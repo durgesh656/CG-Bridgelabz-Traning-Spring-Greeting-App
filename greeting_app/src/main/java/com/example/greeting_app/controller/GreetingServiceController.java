@@ -1,10 +1,10 @@
 package com.example.greeting_app.controller;
 
+import com.example.greeting_app.entity.GreetingEntity;
 import com.example.greeting_app.service.GreetingService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
 
 @RestController
 @RequestMapping("greet/hello")
@@ -26,4 +26,13 @@ public class GreetingServiceController {
     public String greetWithFullName(@RequestParam(required = false) String firstName, @RequestParam(required = false) String lastName){
         return greetingService.customGreetingMessage(firstName,lastName);
     }
+
+    // POST request to save the message
+    @PostMapping("/save")
+    public GreetingEntity saveMessage(@RequestBody String message){
+        return greetingService.saveMessage(message);
+    }
+
+
+
 }
