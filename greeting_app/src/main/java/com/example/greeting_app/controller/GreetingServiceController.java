@@ -4,6 +4,7 @@ import com.example.greeting_app.entity.GreetingEntity;
 import com.example.greeting_app.service.GreetingService;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -39,5 +40,10 @@ public class GreetingServiceController {
         return greetingService.findMessageById(id);
     }
 
+    // Get All Greeting Messages
+    @GetMapping("/all")
+    public List<GreetingEntity> getAllGreetings() {
+        return greetingService.getAllGreetings();
+    }
 
 }
