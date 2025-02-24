@@ -33,6 +33,11 @@ public class GreetingServiceController {
         return greetingService.saveMessage(message);
     }
 
+    // GET request to get the message from ID
+    @GetMapping("/get/{id}")
+    public Optional<GreetingEntity> getMessageById(@PathVariable Long id){
+        return greetingService.findMessageById(id);
+    }
 
 
 }
